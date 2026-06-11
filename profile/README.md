@@ -43,11 +43,10 @@ Every API key the gateway issues is bound at creation to a system prompt, a mode
 ```bash
 git clone https://github.com/synapse-ai-gateway/synapse-ai-gateway
 cd synapse-ai-gateway
-cp .env.example .env
 docker compose up -d
 ```
 
-Admin console at `http://localhost:5173`, gateway at `http://localhost:8080`. Full quick start in the [main repo README](https://github.com/synapse-ai-gateway/synapse-ai-gateway#quick-start).
+Admin console at `http://localhost:5173`, gateway at `http://localhost:8080`. Every setting has a working default for a laptop trial — set real secrets via `.env` before exposing the stack beyond localhost. Full quick start in the [main repo README](https://github.com/synapse-ai-gateway/synapse-ai-gateway#quick-start).
 
 ## Documentation
 
