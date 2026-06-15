@@ -32,11 +32,12 @@ Every API key the gateway issues is bound at creation to a system prompt, a mode
 
 ## What's in the box
 
-- **Three containers, one compose command** — postgres + backend + admin console
-- **Backend image:** 195 MB · **idle memory:** under 50 MB
-- **69 tests · ~88% coverage** · Bandit + Trivy in CI
-- **Append-only PostgreSQL audit schema** — designed for regulatory examination
-- **OpenAI-compatible REST API** — drop-in at the API layer; backend choice is transparent to consuming applications
+- **Simple deployment** — Three containers, one compose command. Backend 73 MB · Postgres 32 MB · Frontend 8 MB at idle. No Redis, no message broker, no Kubernetes required to get started.
+- **CI you can trust** — GitHub Actions runs Bandit static security and Trivy CVE scanning on every push. 97 tests, ~88% line coverage.
+- **Audit you can defend** — Append-only PostgreSQL schema. Prompt and response hashes only. Designed for regulatory examination.
+- **OpenAI-compatible** — Drop-in replacement at the API layer. Any OpenAI SDK works. Switching backends never touches your application code.
+- **Policy Packs** — GDPR, HIPAA, and PCI-DSS v4.0 governance bundles ship out of the box. One-click apply with pre-configured DLP patterns for each regulation.
+- **Spend Attribution** — Per-team, per-model cost dashboards with configurable budgets and colour-coded threshold alerts.
 
 ## Get started
 
@@ -56,10 +57,12 @@ Each subsystem has its own deep-dive:
 - [**DLP configuration**](https://github.com/synapse-ai-gateway/synapse-ai-gateway/blob/main/docs/dlp-configuration.md) — regex engine, jurisdiction-specific patterns, block/redact/alert actions
 - [**Hybrid routing**](https://github.com/synapse-ai-gateway/synapse-ai-gateway/blob/main/docs/hybrid-routing.md) — data classification, on-premises vs cloud routing decisions
 - [**Audit logging**](https://github.com/synapse-ai-gateway/synapse-ai-gateway/blob/main/docs/audit-logging.md) — hash-only schema, regulatory examination, retention
+- [**Spend attribution**](https://github.com/synapse-ai-gateway/synapse-ai-gateway/blob/main/docs/spend-attribution.md) — per-team and per-model cost tracking, budget alerts, model pricing
+- [**Policy packs**](https://github.com/synapse-ai-gateway/synapse-ai-gateway/blob/main/docs/policy-packs.md) — GDPR, HIPAA, PCI-DSS bundles, YAML export/import
 
 ## When you should use something else
 
-For high-scale deployments — millions of requests per day, dedicated platform team, enterprise tooling budget — [LiteLLM](https://github.com/BerriAI/litellm) and Kong are better fits. They solve a different problem at a different scale. Synapse is for the 5-100-person band that needs governance and audit today, not in eighteen months.
+For high-scale deployments — millions of requests per day, dedicated platform team, enterprise tooling budget — [LiteLLM](https://github.com/BerriAI/litellm) and Kong are better fits. They solve a different problem at a different scale. Synapse is for the team that needs governance, GDPR/HIPAA/PCI-DSS controls, and audit today — not in eighteen months. Both tools are right. They are right for different teams at different stages.
 
 ## Contributing
 
